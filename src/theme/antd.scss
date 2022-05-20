@@ -1,0 +1,20 @@
+@import "./variables.scss";
+
+input[type=number] {
+    -moz-appearance: textfield !important;
+}
+
+.ant-typography {
+    font-family: $font !important;
+}
+.ant-btn {
+    font-family: $font !important;
+}
+    
+.ant-input {
+    font-family: $font !important;
+}
+
+.input {
+    font-family: $font !important;
+}
