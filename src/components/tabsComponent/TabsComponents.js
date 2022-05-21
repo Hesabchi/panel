@@ -14,12 +14,12 @@ const TabsComponents = () => {
 
   return (
     <Tabs activeKey={currentTab} onChange={callback}>
-      <TabPane tab="لیست بدهکاری‌ها" key="1">
+      <TabPane tab="بدهی ها" key="1">
         <div className="list">
           <DebtsList />
         </div>
       </TabPane>
-      <TabPane tab="لیست بستانکاری‌ها" key="2">
+      <TabPane tab="طلب ها" key="2">
         <div className="list">
           <CreditorsList />
         </div>

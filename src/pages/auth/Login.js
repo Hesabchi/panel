@@ -54,6 +54,7 @@ function Login() {
 
       setLoading(false);
     } catch (error) {
+      setLoading(false);
       HandleErrors(error);
     }
   };
