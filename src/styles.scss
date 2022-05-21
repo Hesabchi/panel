@@ -1,0 +1,29 @@
+@import "./theme/variables.scss";
+
+.login {
+    background-color: $secondary-color;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .login-title {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: #fff;
+        position: absolute;
+        top: 10%;
+    }
+    .login-image {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+    .login-btn {
+        width: 180px;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+}
