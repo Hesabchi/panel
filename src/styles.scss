@@ -1,29 +1,170 @@
 @import "./theme/variables.scss";
 
 .login {
-    background-color: $secondary-color;
-    height: 100vh;
+  background-color: $secondary-color;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .login-title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #fff;
+    position: absolute;
+    top: 10%;
+  }
+  .login-image {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  .login-btn {
+    width: 180px;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+}
+
+.home {
+  height: 100vh;
+  background-color: $primary-background-color;
+  .home-header {
     display: flex;
     flex-direction: column;
+    background-color: $secondary-color;
+    justify-content: end;
+    align-items: center;
+    height: 7vh;
+    padding: 10px;
+    box-shadow: 1px 4px 10px 1px rgba(12, 60, 50, 0.45);
+  }
+
+  .ant-tabs {
+    width: 100% !important;
+  }
+
+  .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list,
+  .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .ant-tabs-tab {
+    margin: 0 20px !important;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .ant-tabs-ink-bar {
+    background-color: $secondary-color !important;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: $secondary-color !important;
+  }
+  .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar,
+  .ant-tabs-top > div > .ant-tabs-nav .ant-tabs-ink-bar {
+    width: 50% !important;
+    margin-left: -20px;
+  }
+
+  .ant-tabs-tab-btn {
+    font-weight: 400;
+    color: $secondary-text-color !important;
+  }
+
+  .ant-tabs-tab:hover {
+    color: $secondary-text-color !important;
+  }
+
+  .ant-tabs-top > .ant-tabs-nav::before,
+  .ant-tabs-bottom > .ant-tabs-nav::before,
+  .ant-tabs-top > div > .ant-tabs-nav::before,
+  .ant-tabs-bottom > div > .ant-tabs-nav::before {
+    border: none !important;
+  }
+}
+
+.inventory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .inventory-title {
+    color: #eee;
+  }
+  .inventory-price {
+    color: #eee;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .refresh-icon {
+    color: #eee;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .inventory-image {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+  .inventory-amount {
+    font-size: 10px;
+    margin-left: 10px;
+    color: #999;
+  }
+}
+
+.list {
+  padding: 0 10px;
+}
+
+.debtsList {
+  .debtsList-item {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    background-color: $secondary-background-color;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 15px;
+    .price {
+      color: #d20f1b
+    }
+  }
+  .pay {
+    background-color: $secondary-color;
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    .login-title {
-        font-size: 2rem;
-        font-weight: 400;
-        margin-bottom: 20px;
-        color: #fff;
-        position: absolute;
-        top: 10%;
-    }
-    .login-image {
-        width: 100%;
-        max-width: 400px;
-        margin-bottom: 20px;
-    }
-    .login-btn {
-        width: 180px;
-        margin-bottom: 20px;
-        font-weight: 400;
-    }
+    color: #eee;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400;
+  }
 }

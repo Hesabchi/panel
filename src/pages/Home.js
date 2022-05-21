@@ -1,9 +1,21 @@
-import { Button } from "antd";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Inventory from "../components/inventory/Inventory";
+import TabsComponents from "../components/tabsComponent/TabsComponents";
 
 function Home() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!sessionStorage.getItem("access_token")) {
+      navigate("/login");
+    }
+  }, []);
   return (
     <div className="home">
-      <Button type="primary">Primary Button</Button>
+      <div className="home-header">
+        <Inventory />
+      </div>
+      <TabsComponents />
     </div>
   );
 }
