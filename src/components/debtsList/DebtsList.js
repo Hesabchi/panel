@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import { MaskNumber } from "../../utility/MaskNumber";
 
 function DebtsList() {
@@ -5,7 +6,7 @@ function DebtsList() {
     <div className="debtsList">
       <div className="debtsList-item">
         <div className="item-head">
-          <div>شیرموز پرتقال</div>
+          <div>شیرموز</div>
           <div>15:10 1401-02-31</div>
         </div>
         <div className="price-container">
@@ -14,7 +15,7 @@ function DebtsList() {
           </div>
           <div>10 پیمان</div>
         </div>
-        <div className="pay">پرداخت بدهی</div>
+        <Button className="pay">پرداخت بدهی</Button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 @import "./theme/variables.scss";
 
 .login {
-  background-color: $secondary-color;
+  background-color: $primary-color;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,16 +25,18 @@
     width: 180px;
     margin-bottom: 20px;
     font-weight: 400;
+    background-color: $secondary-color;
   }
 }
 
 .home {
   height: 100vh;
   background-color: $primary-background-color;
+  position: relative;
   .home-header {
     display: flex;
     flex-direction: column;
-    background-color: $secondary-color;
+    background-color: $primary-color;
     justify-content: end;
     align-items: center;
     height: 7vh;
@@ -63,16 +65,17 @@
   }
 
   .ant-tabs-ink-bar {
-    background-color: $secondary-color !important;
+    background-color: $primary-color !important;
   }
 
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: $secondary-color !important;
+    color: $primary-color !important;
   }
   .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar,
   .ant-tabs-top > div > .ant-tabs-nav .ant-tabs-ink-bar {
     width: 50% !important;
     margin-left: -20px;
+    display: none;
   }
 
   .ant-tabs-tab-btn {
@@ -121,7 +124,7 @@
   }
   .inventory-amount {
     font-size: 10px;
-    margin: 0 10px ;
+    margin: 0 10px;
     color: #999;
   }
 }
@@ -152,11 +155,47 @@
     font-weight: 400;
     margin-top: 15px;
     .price {
-      color: #d20f1b
+      color: #d20f1b;
     }
   }
   .pay {
-    background-color: $secondary-color;
+    background-color: $primary-color;
+    color: #eee;
+    height: 35px !important;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 13px;
+  }
+}
+
+.creditorsList {
+  .creditorsList-item {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    background-color: $secondary-background-color;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 15px;
+    .price {
+      color: #d20f1b;
+    }
+  }
+  .waiting-for-pay {
+    background-color: #e8960f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,5 +205,88 @@
     margin-top: 20px;
     font-size: 13px;
     font-weight: 400;
+    user-select: none;
   }
+  .is-paid {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    user-select: none;
+  }
+}
+
+.add-purchase-container {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  .add-purchase {
+    padding: 13px 20px !important;
+    border-radius: 50px;
+    box-shadow: 2px 4px 16px -4px $primary-color;
+    display: flex;
+    align-items: center;
+
+    .add-icon {
+      margin-left: 5px;
+    }
+  }
+}
+
+.modal-form-item {
+  margin-bottom: 15px;
+  .modal-input-title {
+    font-weight: 300;
+    margin-left: 10px;
+  }
+}
+
+.modal-repeater-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  .form-add-container {
+    padding: 8px 10px;
+    border: 1px solid $secondary-color;
+    display: flex;
+    margin-right: 10px;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.modal-persons-public {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  .modal-persons-public-item {
+    display: flex;
+    .modal-persons-public-badge {
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+    .delete-repeater-item {
+      margin-right: 7px;
+      font-size: 21px;
+      color: #d20f1b;
+      cursor: pointer;
+    }
+  }
+}
+
+.modal-add-btn {
+  background-color: $primary-color;
+  color: #eee;
+  height: 35px !important;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 13px;
 }

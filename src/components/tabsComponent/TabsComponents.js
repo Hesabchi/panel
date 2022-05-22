@@ -14,14 +14,14 @@ const TabsComponents = () => {
 
   return (
     <Tabs activeKey={currentTab} onChange={callback}>
-      <TabPane tab="بدهی ها" key="1">
-        <div className="list">
-          <DebtsList />
-        </div>
-      </TabPane>
-      <TabPane tab="طلب ها" key="2">
+      <TabPane tab="طلب ها" key="1">
         <div className="list">
           <CreditorsList />
+        </div>
+      </TabPane>
+      <TabPane tab="بدهی ها" key="2">
+        <div className="list">
+          <DebtsList />
         </div>
       </TabPane>
     </Tabs>

@@ -2,15 +2,19 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Inventory from "../components/inventory/Inventory";
 import TabsComponents from "../components/tabsComponent/TabsComponents";
-import {shallowEqual, useDispatch, useSelector} from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getAccountBalance } from "../redux/actions/userAction";
+import AddPurchase from "../components/addPurchase/AddPurchase";
 
 function Home() {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const publicKey = useSelector(state => state.User.publicKey, shallowEqual);
-  const accessToken = useSelector(state => state.User.accessToken, shallowEqual);
+  const publicKey = useSelector((state) => state.User.publicKey, shallowEqual);
+  const accessToken = useSelector(
+    (state) => state.User.accessToken,
+    shallowEqual
+  );
 
   useEffect(() => {
     if (!accessToken) {
@@ -18,13 +22,11 @@ function Home() {
     }
   }, []);
 
-
-  useEffect(()=>{
-    if(publicKey){
-      dispatch(getAccountBalance(publicKey))
+  useEffect(() => {
+    if (publicKey) {
+      dispatch(getAccountBalance(publicKey));
     }
-  },[publicKey])
-
+  }, [publicKey]);
 
   return (
     <div className="home">
@@ -32,6 +34,9 @@ function Home() {
         <Inventory />
       </div>
       <TabsComponents />
+      <div className="add-purchase-container">
+        <AddPurchase />
+      </div>
     </div>
   );
 }
