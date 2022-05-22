@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Inventory from "../components/inventory/Inventory";
 import TabsComponents from "../components/tabsComponent/TabsComponents";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getAccountBalance } from "../redux/actions/userAction";
+import { getAccountBalance, getListsData } from "../redux/actions/userAction";
 import AddPurchase from "../components/addPurchase/AddPurchase";
 
 function Home() {
@@ -17,6 +17,7 @@ function Home() {
   );
 
   useEffect(() => {
+    dispatch(getListsData());
     if (!accessToken) {
       navigate("/login");
     }

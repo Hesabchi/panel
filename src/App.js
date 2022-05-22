@@ -20,6 +20,7 @@ ConfigProvider.config({
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     initWallet();
   }, []);

@@ -167,10 +167,14 @@
     margin-top: 20px;
     font-size: 13px;
   }
+  .transaction-title {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
-.creditorsList {
-  .creditorsList-item {
+.claimsList {
+  .claimsList-item {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     background-color: $secondary-background-color;
     padding: 7px;
@@ -219,6 +223,10 @@
     font-size: 13px;
     font-weight: 400;
     user-select: none;
+  }
+  .transaction-title {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 

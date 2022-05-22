@@ -6,7 +6,7 @@ function DebtsList() {
     <div className="debtsList">
       <div className="debtsList-item">
         <div className="item-head">
-          <div>شیرموز</div>
+          <div className="transaction-title">شیرموز</div>
           <div>15:10 1401-02-31</div>
         </div>
         <div className="price-container">

@@ -1,12 +1,14 @@
+import { moment } from "jalali-moment";
 import { MaskNumber } from "../../utility/MaskNumber";
 
-function CreditorsList() {
+function ClaimsList() {
   return (
-    <div className="creditorsList">
-      <div className="creditorsList-item">
+    <div className="claimsList">
+      <div className="claimsList-item">
         <div className="item-head">
-          <div>شیرموز</div>
+          <div className="transaction-title">شیرموز</div>
           <div>15:10 1401-02-31</div>
+          {/* {moment(created_at, "YYYY-MM-DD").format("jYYYY/jMM/jDD")} */}
         </div>
         <div className="price-container">
           <div>
@@ -16,9 +18,9 @@ function CreditorsList() {
         </div>
         <div className="waiting-for-pay">در انتظار پرداخت</div>
       </div>
-      <div className="creditorsList-item">
+      <div className="claimsList-item">
         <div className="item-head">
-          <div>شیرموز</div>
+          <div className="transaction-title">شیرموز</div>
           <div>15:10 1401-02-31</div>
         </div>
         <div className="price-container">
@@ -33,4 +35,4 @@ function CreditorsList() {
   );
 }
 
-export default CreditorsList;
+export default ClaimsList;

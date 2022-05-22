@@ -1,4 +1,11 @@
-import { SET_WALLET_CONNECT, SET_LOGIN_DATA, SET_ACCOUNT_BALANCE, SET_IRR } from "../actions/types";
+import {
+  SET_WALLET_CONNECT,
+  SET_LOGIN_DATA,
+  SET_ACCOUNT_BALANCE,
+  SET_IRR,
+  SET_DEPTS_LIST_DATA,
+  SET_CLAIMS_LIST_DATA,
+} from "../actions/types";
 
 const initialState = {
   accessToken: sessionStorage.getItem("access_token") || "",
@@ -6,6 +13,8 @@ const initialState = {
   balance: 0,
   irr: 0,
   walletConnect: {},
+  deptsList: [],
+  claimsList: [],
 };
 
 export const User = (state = initialState, action = {}) => {
@@ -25,17 +34,28 @@ export const User = (state = initialState, action = {}) => {
       };
 
     case SET_ACCOUNT_BALANCE:
-      return{
+      return {
         ...state,
-        balance: payload
-      }
+        balance: payload,
+      };
 
     case SET_IRR:
-      return{
+      return {
         ...state,
-        irr: payload
-      }
+        irr: payload,
+      };
 
+    case SET_DEPTS_LIST_DATA:
+      return {
+        ...state,
+        deptsList: payload,
+      };
+
+    case SET_CLAIMS_LIST_DATA:
+      return {
+        ...state,
+        claimsList: payload,
+      };
     default:
       return state;
   }

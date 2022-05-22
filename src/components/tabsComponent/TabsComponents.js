@@ -1,6 +1,6 @@
 import { Tabs } from "antd";
 import { useState } from "react";
-import CreditorsList from "../creditorsList/CreditorsList";
+import ClaimsList from "../claimsList/ClaimsList";
 import DebtsList from "../debtsList/DebtsList";
 
 const { TabPane } = Tabs;
@@ -16,7 +16,7 @@ const TabsComponents = () => {
     <Tabs activeKey={currentTab} onChange={callback}>
       <TabPane tab="طلب ها" key="1">
         <div className="list">
-          <CreditorsList />
+          <ClaimsList />
         </div>
       </TabPane>
       <TabPane tab="بدهی ها" key="2">

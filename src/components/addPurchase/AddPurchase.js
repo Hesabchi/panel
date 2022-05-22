@@ -1,33 +1,77 @@
-import { Badge, Button, Input, Modal, Switch } from "antd";
+import { Badge, Button, Input, message, Modal, Switch } from "antd";
 import { Fragment, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getListsData } from "../../redux/actions/userAction";
+import { addCost } from "../../services/transactionService";
+import { HandleErrors } from "../../utility/HandleErrors";
 
 function AddPurchase() {
+  const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [personAddress, setPersonAddress] = useState("");
-  const [personsAddress, setPersonsAddress] = useState([]);
+  const [loader, setLoader] = useState(false);
+  const [data, setData] = useState({
+    title: "",
+    amount: "",
+    include_me: false,
+    users: [],
+  });
 
   const showModal = () => {
     setIsModalVisible(!isModalVisible);
   };
 
   const switchOnChange = (checked) => {
-    console.log(`switch to ${checked}`);
+    setData({ ...data, include_me: checked });
   };
 
   const addPerson = () => {
     if (personAddress === "") return;
-    const array = personsAddress;
+    const array = data.users;
     if (!array.includes(personAddress)) {
       array.push(personAddress);
-      setPersonsAddress(array);
+      setData({ ...data, users: array });
       setPersonAddress("");
     }
   };
 
   const deleteAddress = (index) => {
-    const array = [...personsAddress];
+    const array = [...data.users];
     array.splice(index, 1);
-    setPersonsAddress(array);
+    setData({ ...data, users: array });
+  };
+
+  const AddCost = async () => {
+    if (data.title === "") {
+      message.error("عنوان را وارد کنید.");
+      return;
+    }
+    if (data.amount === "") {
+      message.error("مبلغ را وارد کنید.");
+      return;
+    }
+    if (data.users.length === 0) {
+      message.error("کاربر یا کاربران مشمول را انتخاب کنید.");
+      return;
+    }
+    try {
+      setLoader(true);
+      const addCostResponse = await addCost(data);
+      dispatch(getListsData());
+      setLoader(false);
+      message.success("درخواست شما با موفقیت ارسال شد.");
+      setIsModalVisible(!isModalVisible);
+      setData({
+        title: "",
+        amount: "",
+        include_me: false,
+        users: [],
+      });
+      setPersonAddress("");
+    } catch (error) {
+      setLoader(false);
+      HandleErrors(error);
+    }
   };
 
   return (
@@ -43,19 +87,32 @@ function AddPurchase() {
       >
         <div className="modal-form-item">
           <span className="modal-input-title">عنوان: </span>
-          <Input placeholder="عنوان" />
+          <Input
+            placeholder="عنوان"
+            value={data.title}
+            onChange={(e) => {
+              setData({ ...data, title: e.target.value });
+            }}
+          />
         </div>
         <div className="modal-form-item">
-          <span className="modal-input-title">مبلغ:</span>
-          <Input placeholder="مبلغ" />
+          <span className="modal-input-title">مبلغ (ریال):</span>
+          <Input
+            value={data.amount}
+            onChange={(e) => {
+              setData({ ...data, amount: e.target.value });
+            }}
+            placeholder="مبلغ"
+          />
         </div>
         <div className="modal-form-item">
           <span className="modal-input-title">خودم را حساب کن:</span>
-          <Switch onChange={switchOnChange} />
+          <Switch checked={data.include_me} onChange={switchOnChange} />
         </div>
         <div className="modal-repeater-container">
           <Input
-            placeholder="کلید عمومی یا آدرس ققنوس افراد مشمول"
+            placeholder="کلید عمومی افراد مشمول"
+            value={personAddress}
             onChange={(e) => {
               setPersonAddress(e.target.value);
             }}
@@ -65,7 +122,7 @@ function AddPurchase() {
           </div>
         </div>
         <div className="modal-persons-public">
-          {personsAddress.map((item, index) => {
+          {data.users.map((item, index) => {
             return (
               <div key={index} className="modal-persons-public-item">
                 <Badge
@@ -89,8 +146,9 @@ function AddPurchase() {
         </div>
         <Button
           className="modal-add-btn"
+          loading={loader}
           onClick={() => {
-            setIsModalVisible(!isModalVisible);
+            AddCost();
           }}
         >
           ثبت هزینه
