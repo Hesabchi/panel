@@ -39,7 +39,6 @@
     background-color: $primary-color;
     justify-content: end;
     align-items: center;
-    height: 7vh;
     padding: 10px;
     box-shadow: 1px 4px 10px 1px rgba(12, 60, 50, 0.45);
   }
@@ -95,39 +94,6 @@
   }
 }
 
-.inventory {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  .inventory-title {
-    color: #eee;
-  }
-  .inventory-price {
-    color: #eee;
-    font-size: 17px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-  }
-  .refresh-icon {
-    color: #eee;
-    font-size: 18px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  .inventory-image {
-    width: 80px;
-    margin-bottom: 15px;
-  }
-  .inventory-amount {
-    font-size: 10px;
-    margin: 0 10px;
-    color: #999;
-  }
-}
 
 .list {
   padding: 0 10px;
@@ -173,62 +139,6 @@
   }
 }
 
-.claimsList {
-  .claimsList-item {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: $secondary-background-color;
-    padding: 7px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-
-  .item-head {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: 400;
-  }
-  .price-container {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: 400;
-    margin-top: 15px;
-    .price {
-      color: #d20f1b;
-    }
-  }
-  .waiting-for-pay {
-    background-color: #e8960f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #eee;
-    height: 30px;
-    border-radius: 5px;
-    margin-top: 20px;
-    font-size: 13px;
-    font-weight: 400;
-    user-select: none;
-  }
-  .is-paid {
-    background-color: $primary-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #eee;
-    height: 30px;
-    border-radius: 5px;
-    margin-top: 20px;
-    font-size: 13px;
-    font-weight: 400;
-    user-select: none;
-  }
-  .transaction-title {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
 
 .add-purchase-container {
   position: fixed;

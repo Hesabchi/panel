@@ -1,0 +1,73 @@
+@import './../../theme/variables.scss';
+
+.ClaimsList{
+    .claimsList-item {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        background-color: $secondary-background-color;
+        padding: 7px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+    
+      .title{
+        font-size: 1em;
+        font-weight: 400;
+      }
+
+      .date{
+        font-size: 1em;
+        font-weight: 400;
+      }
+
+      .account-container{
+        margin-top: 15px;
+
+        .publickey{
+          font-family: $font_enNumber !important;
+        }
+
+      }
+
+      .price-container {
+        margin-top: 15px;
+        .price {
+          color: #d20f1b;
+        }
+
+        .title{
+          font-size: 13px;
+          font-weight: 500;
+        }
+
+        .unit{
+          font-size: 0.8em;
+          font-weight: 300;
+        }
+      }
+      .waiting-for-pay {
+        background-color: #e8960f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #eee;
+        height: 30px;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        user-select: none;
+      }
+      .is-paid {
+        background-color: $primary-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #eee;
+        height: 30px;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        user-select: none;
+      }
+}

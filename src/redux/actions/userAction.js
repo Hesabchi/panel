@@ -34,15 +34,13 @@ export const getListsData = () => {
     try {
       //   let deptsListData = await getDeptsList();
       let claimsListData = await getClaimsList();
-
       //   dispatch({
       //     type: SET_DEPTS_LIST_DATA,
       //     payload: deptsListData.data,
       //   });
-
       dispatch({
         type: SET_CLAIMS_LIST_DATA,
-        payload: claimsListData.data,
+        payload: claimsListData.data.claims,
       });
     } catch (error) {}
   };

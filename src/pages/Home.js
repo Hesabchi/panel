@@ -17,7 +17,6 @@ function Home() {
   );
 
   useEffect(() => {
-    dispatch(getListsData());
     if (!accessToken) {
       navigate("/login");
     }
@@ -26,6 +25,7 @@ function Home() {
   useEffect(() => {
     if (publicKey) {
       dispatch(getAccountBalance(publicKey));
+      dispatch(getListsData());
     }
   }, [publicKey]);
 

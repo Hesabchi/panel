@@ -1,0 +1,34 @@
+@import './../../theme/variables.scss';
+
+.Inventory{
+    width: 100%;
+
+    .title-box{
+        display: flex;
+        align-items: center;
+    }
+    .title {
+      color: #eee;
+    }
+    .token-amount{
+        font-size: 0.8em;
+        color: $third-text-color;
+        margin: 0 5px;
+    }
+
+    .price-box{
+        display: flex;
+        align-items: center;
+    }
+    .price {
+      color: #eee;
+      font-size: 1em;
+      font-weight: 500;
+    }
+  
+    .unit {
+        font-size: 0.8em;
+        color: $third-text-color;
+        margin: 0 5px;
+    }
+}
