@@ -38,3 +38,16 @@ export const getDeptsList = (data) => {
       });
   });
 };
+
+export const submitpaymentService = (hash) => {
+  return new Promise((resolve, reject) => {
+    backendApi
+      .post("/transactions/payment" , {hash})
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};

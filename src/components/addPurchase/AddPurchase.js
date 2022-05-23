@@ -102,7 +102,7 @@ function AddPurchase() {
         <i className="las la-plus add-icon"></i> ثبت هزینه
       </Button>
       <Modal
-        title="مشخصات خرید"
+        title="مشخصات هزینه"
         footer={null}
         onCancel={() => setIsModalVisible(!isModalVisible)}
         visible={isModalVisible}

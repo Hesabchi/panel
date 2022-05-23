@@ -1,7 +1,7 @@
 import { Tabs } from "antd";
 import { useState } from "react";
 import ClaimsList from "../claimsList/ClaimsList";
-import DebtsList from "../debtsList/DebtsList";
+import DebtsList from "../debtsList/DeptsList";
 
 const { TabPane } = Tabs;
 

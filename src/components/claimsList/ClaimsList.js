@@ -14,10 +14,10 @@ function ClaimsList() {
   return (
     <div className="ClaimsList">
       <Row justify="center">
-        <Col xs={20} className="empty-box">
+        {claims.length === 0 && <Col xs={20} className="empty-box">
           <img src={'/assets/images/empty.svg'} width={'100%'} />
           <Text className="desc">شما هیچ طلبی ندارید</Text>
-        </Col>
+        </Col>}
         {claims.map(item=>{
           return(
             <Col xs={24} className="claimsList-item">

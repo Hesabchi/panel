@@ -32,12 +32,12 @@ export const getAccountBalance = (publicKey) => {
 export const getListsData = () => {
   return async (dispatch) => {
     try {
-      //   let deptsListData = await getDeptsList();
+      let deptsListData = await getDeptsList();
       let claimsListData = await getClaimsList();
-      //   dispatch({
-      //     type: SET_DEPTS_LIST_DATA,
-      //     payload: deptsListData.data,
-      //   });
+      dispatch({
+        type: SET_DEPTS_LIST_DATA,
+        payload: deptsListData.data.depts,
+      });
       dispatch({
         type: SET_CLAIMS_LIST_DATA,
         payload: claimsListData.data.claims,
