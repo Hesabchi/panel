@@ -1,12 +1,16 @@
 import { Badge, Button, Input, message, Modal, Switch } from "antd";
 import { Fragment, useState } from "react";
-import { useDispatch } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getListsData } from "../../redux/actions/userAction";
+import { getKuknosAddressService } from "../../services/kuknosService";
 import { addCost } from "../../services/transactionService";
 import { HandleErrors } from "../../utility/HandleErrors";
 
 function AddPurchase() {
   const dispatch = useDispatch();
+
+  const userPublicKey = useSelector(state => state.User.publicKey, shallowEqual);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [personAddress, setPersonAddress] = useState("");
   const [loader, setLoader] = useState(false);
@@ -25,13 +29,31 @@ function AddPurchase() {
     setData({ ...data, include_me: checked });
   };
 
-  const addPerson = () => {
-    if (personAddress === "") return;
-    const array = data.users;
-    if (!array.includes(personAddress)) {
-      array.push(personAddress);
-      setData({ ...data, users: array });
-      setPersonAddress("");
+  const addPerson = async () => {
+    try {
+      if (personAddress === "") return;
+
+      let publickey = personAddress
+
+      if(personAddress.substr(personAddress.length - 10) === '*kuknos.ir'){
+        const response = await getKuknosAddressService(personAddress)
+        publickey = response.account_id
+      }
+
+      if(publickey === userPublicKey){
+        message.error('حساب شما نمی تواند شامل افرا مشمول باشد.')
+        return;
+      }
+
+      const array = [...data.users];
+      if (!array.includes(publickey)) {
+        array.push(publickey);
+        setData({ ...data, users: array });
+        setPersonAddress("");
+      }
+
+    } catch (error) {
+      HandleErrors(error)
     }
   };
 
@@ -111,7 +133,7 @@ function AddPurchase() {
         </div>
         <div className="modal-repeater-container">
           <Input
-            placeholder="کلید عمومی افراد مشمول"
+            placeholder="کلید عمومی یا آدرس ققنوسی افراد مشمول"
             value={personAddress}
             onChange={(e) => {
               setPersonAddress(e.target.value);
